@@ -17,3 +17,15 @@ This bash script will reinitialize your '~/.bashrc' file. One of the things this
 ## Reset Wifi [service/systemctl]
 
 I use these bash scripts to reset the network adapter on my laptop, which sometimes stalls when I do not turn it off frequently. There are two files, each use a different method and I am not entirely sure there is a difference. I must have had a problem with one of them one day and found another method.
+
+## ttyrec
+
+From Wikipedia, the free encyclopedia:
+
+ttyrec is a program and/or its file format capable of recording the TTY output of
+a text-mode program together with timestamps and then replaying it. 
+
+```sh
+sudo apt-get update;
+sudo apt-get install ttyrec
+```
