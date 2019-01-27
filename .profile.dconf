@@ -1,0 +1,22 @@
+[/]
+foreground-color='rgb(136,136,136)'
+rewrap-on-resize=true
+scrollbar-policy='never'
+palette=['rgb(0,0,0)', 'rgb(170,0,0)', 'rgb(10,255,37)', 'rgb(173,110,48)', 'rgb(126,26,138)', 'rgb(170,0,170)', 'rgb(0,170,170)', 'rgb(62,151,255)', 'rgb(95,95,95)', 'rgb(232,209,0)', 'rgb(255,255,255)', 'rgb(255,255,85)', 'rgb(235,128,28)', 'rgb(0,130,250)', 'rgb(102,226,226)', 'rgb(144,224,136)']
+visible-name='em'
+default-size-rows=100
+default-size-columns=256
+cursor-shape='underline'
+scroll-on-output=true
+use-theme-colors=false
+use-system-font=true
+exit-action='hold'
+font='Ubuntu Light 16'
+use-theme-transparency=false
+allow-bold=true
+use-transparent-background=true
+bold-color-same-as-fg=true
+background-color='rgb(0,0,0)'
+background-transparency-percent=7
+scrollback-lines=5000
+audible-bell=true
