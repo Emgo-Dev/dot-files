@@ -1,0 +1,40 @@
+#!/bin/bash
+# My Help Script
+## Echo brief overview of common linux commands.
+
+pwd="pwd
+        Print full path of current directory. Does not act on any arguments like files or directories, but it does have some options for advanced users."
+
+cd="cd
+        Only acts on one argument (ie: 'user@computer:~/$ cd /home/user/documents'). If your terminal supports it, you can auto-complete directory names with TAB."
+
+ls="ls
+        Print files in current directory, or provide a path (ie: '$shellstring ls $dpathstring').
+
+        -lh
+          Changed printed data to long format which displays meta data for files such as permissions, owner, group, size (in bytes), date last modified.
+
+        -a
+          Causes all hidden files (files beginning with '.' ie: '.bashrc') to be printed."
+
+df="df
+        Print disk usage statistics of mounted file systems."
+
+cat <<- _EOF_
+NANI(1)
+
+NAME
+      nani - display common terminal commands
+
+SYNOPSIS
+      nani
+
+DESCRIPTION
+      $pwd
+
+      $cd
+
+      $ls
+
+      $df
+_EOF_

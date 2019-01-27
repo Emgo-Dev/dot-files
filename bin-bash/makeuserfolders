@@ -1,0 +1,13 @@
+#!/bin/bash
+
+mkdir -p ~/applications
+mkdir -p ~/audio
+mkdir -p ~/desktop
+mkdir -p ~/documents
+mkdir -p ~/downloads
+mkdir -p ~/imagery
+mkdir -p ~/journals
+mkdir -p ~/literature
+mkdir -p ~/maker
+mkdir -p ~/trash
+mkdir -p ~/videos
