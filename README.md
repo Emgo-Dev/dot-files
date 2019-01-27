@@ -1,44 +1,18 @@
-# Emgo Linux Notes
+# Dot Files
 
-Welcome, this repo is a collection of notes, and things I use on Linux and in the terminal. You might notice the only files in the earl commits are prefixed with a '.'. I use these bash scripts in my root directory and prefer to keep them hidden.
+My collection of configurations I use on Linux.
 
-## Kodi Controls
+## What is this?
 
-Have you ever heard of Kodi? It's a media player I am fond of. They want to bring the family-room/movie-theatre experience to your computer. They feature full-screen UI with a cinematic feel. Targeting this TV like experience, mouse inputs are generally a hassle to perform, instead you navigate the UI with arrow keys, and various contextual keys, as you would with a remote controller. This file is an attempt to document those various keys and what they do.
+On the long chance you are not sure what these are stumbled in here curiously; Dot files are hidden files beginning with a period (`.file.ext`). On linux, these files are hidden from normal view, and usually used for configuration, whether on the system or for individual projects. This repo is my collection of dot files used for configuration around my linux system.
 
-## Re-Bashrc
+## Index
 
-```
-$ bash .rebashrc.sh
-```
+Here is what you will find in this repo:
 
-This bash script will reinitialize your '~/.bashrc' file. One of the things this file contains is your aliases - you can read more about aliases under the bash manual page (`$ man bash`).
-
-## Reset Wifi [service/systemctl]
-
-I use these bash scripts to reset the network adapter on my laptop, which sometimes stalls when I do not turn it off frequently. There are two files, each use a different method and I am not entirely sure there is a difference. I must have had a problem with one of them one day and found another method.
-
-## Mouse Setup
-
-There aren't any easy ways to manage device input out of the box on Ubuntu. My computers usually start up with fast mouse movements. I use this bash scrit to reset the properties moderate values. There are commented out lines to show a previous method I had learned to use, which does not work at times when the input device id changes.
-
-## Nethogs
-
-> [Readme: Introduction](https://github.com/raboof/nethogs#readme)
-> NetHogs is a small 'net top' tool. Instead of breaking the traffic down per protocol or per subnet, like most tools do, it groups bandwidth by process.
-> 
-> NetHogs does not rely on a special kernel module to be loaded. If there's suddenly a lot of network traffic, you can fire up NetHogs and immediately see which PID is causing this. This makes it easy to identify programs that have gone wild and are suddenly taking up your bandwidth.
-> 
-> Since NetHogs heavily relies on /proc, most features are only available on Linux. NetHogs can be built on Mac OS X and FreeBSD, but it will only show connections, not processes.
-
-## ttyrec
-
-From Wikipedia, the free encyclopedia:
-
-ttyrec is a program and/or its file format capable of recording the TTY output of
-a text-mode program together with timestamps and then replaying it. 
-
-```sh
-sudo apt-get update;
-sudo apt-get install ttyrec
-```
+- `./`: dot files that go in your home folder (`~/`). Make sure to create backups of your files (even defaults) before overriding them. A good way to do this is to add `*-default.ext` to the file name.
+- `.emacs`: EMACS init (initiation) file. Contains various LISP code for reconfiguring EMACS at startup. I prefer a variety of keybindings that remove many default keybindings in general text editing modes.
+- `.emacs.d/`: An EMACS folder for customization. Contains abbreviation file for word-expansion.
+- `.config/user-dirs.dirs`: This file allows you to change the default directories recognized by your system, such as in the file explorer sidebar.
+- `/bin-bash`: shell scripts/custom commands. Add shell extension (`.sh`) and check ownership/privileges to use files as shell scripts. Leave files alone and rename directory to `~/bin` to use as custom commands as logged in user (restart terminal sessions).
+rk
