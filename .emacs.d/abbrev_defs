@@ -1,0 +1,187 @@
+(define-abbrev-table 'edit-abbrevs-mode-abbrev-table '())
+
+(define-abbrev-table 'emacs-lisp-byte-code-mode-abbrev-table '())
+
+(define-abbrev-table 'emacs-lisp-mode-abbrev-table '())
+
+(define-abbrev-table 'fundamental-mode-abbrev-table
+  '(
+    ("abbrev" "(\"abbreviation\" \"Printed Text\" nil 1)" nil 1)
+  )
+)
+
+(define-abbrev-table 'global-abbrev-table '())
+
+(define-abbrev-table 'html-mode-abbrev-table
+  '(
+    ("a" "<a title=\"\" target=\"\" href=\"\"></a>" nil 1)
+    ("atag" "<a>" nil 1)
+    ("aendtag" "</a>" nil 1)
+
+    ("htmltemplate" "<!DOCTYPE html>
+<html lang=\"en\" dir=\"ltr\">
+  <head>
+    <meta charset=\"utf-8\" />
+    <title>Snippet Title</title>
+
+    <!-- Vendor Stylesheets -->
+
+    <!-- User Stylesheets -->
+
+    <!-- Vendor Scripts -->
+
+    <!-- User Scripts -->
+
+  </head>
+
+  <body>
+    
+  </body>
+
+  <!-- Vendor Scripts -->
+
+  <!-- User Scripts -->
+
+</html>" nil 1)
+
+    ("code" "<code></code>" nil 1)
+    ("codetag" "<code>" nil 1)
+    ("codeendtag" "</code>" nil 1)
+
+    ("html" "<html></html>" nil 1)
+    ("htmltag" "<html>" nil 1)
+    ("htmlendtag" "</html>" nil 1)
+
+    ("link" "<link rel=\"stylesheet\" type=\"text/css\" href=\"\" />" nil 1)
+    ("linktag" "<link />" nil 1)
+
+    ("pre" "<pre></pre>" nil 1)
+    ("pretag" "<pre>" nil 1)
+    ("preendtag" "</pre>" nil 1)
+
+    ("style" "<style></style>" nil 1)
+    ("styletag" "<style>" nil 1)
+    ("styleendtag" "</style>" nil 1)
+
+    ("blankscript" "<script></script>" nil 1)
+    ("emptyscript" "<script></script>" nil 1)
+    ("plainscript" "<script></script>" nil 1)
+    ("script" "<script src=\"\"></script>" nil 1)
+    ("scripttag" "<script>" nil 1)
+    ("scriptendtag" "</script>" nil 1)
+
+    ("section" "<section></section>" nil 1)
+    ("sectiontag" "<section>" nil 1)
+    ("sectionendtag" "</section>" nil 1)
+
+    ("ul" "<ul></ul>" nil 1)
+    ("ultag" "<ul>" nil 1)
+    ("ulendtag" "</ul>" nil 1)
+
+    ("p" "<p></p>" nil 1)
+    ("ptag" "<p>" nil 1)
+    ("pendtag" "</p>" nil 1)
+
+    ("li" "<li></li>" nil 1)
+    ("litag" "<li>" nil 1)
+    ("liendtag" "</li>" nil 1)
+
+    ("blanktable" "<table></table>" nil 1)
+    ("tabletag" "<table>" nil 1)
+    ("tableendtag" "</table>" nil 1)
+
+    ("table" "<table cellspacing=\"\">
+  <thead>
+  </thead>
+  <tbody>
+  </tbody>
+</table>" nil 1)
+
+    ("thead" "<thead></thead>" nil 1)
+    ("theadtag" "<thead>" nil 1)
+    ("theadendtag" "</thead>" nil 1)
+
+    ("tbody" "<tbody></tbody>" nil 1)
+    ("tbodytag" "<tbody>" nil 1)
+    ("tbodyendtag" "</tbody>" nil 1)
+
+    ("tfoot" "<tfoot></tfoot>" nil 1)
+    ("tfoottag" "<tfoot>" nil 1)
+    ("tfootendtag" "</tfoot>" nil 1)
+
+    ("tr" "<tr></tr>" nil 1)
+    ("trtag" "<tr>" nil 1)
+    ("trendtag" "</tr>" nil 1)
+
+    ("td" "<td></td>" nil 1)
+    ("tdtag" "<td>" nil 1)
+    ("tdendtag" "</td>" nil 1)
+  )
+)
+
+(define-abbrev-table 'idl-mode-abbrev-table '())
+
+(define-abbrev-table 'java-mode-abbrev-table
+  '(
+    ("StatefulComponent" "class Component extends React.Component {
+  constructor(props){
+    super(props);
+
+    this.state = {};
+
+  }
+
+  render(){
+    return();
+  };
+}
+
+export default Component;" nil 1)
+
+    ("StatelessComponent" "function Component(props){
+  return ();
+}
+
+export Component;" nil 1)
+
+    ("BindStateful" "this.function = this.function.bind(this);" nil 1)
+    ("StatefulBind" "this.function = this.function.bind(this);" nil 1)
+    ("StatefulBinding" "this.function = this.function.bind(this);" nil 1)
+  )
+)
+
+(define-abbrev-table 'js-mode-abbrev-table '())
+
+(define-abbrev-table 'lisp-mode-abbrev-table '())
+
+(define-abbrev-table 'messages-buffer-mode-abbrev-table '())
+
+(define-abbrev-table 'objc-mode-abbrev-table
+  '(
+   ))
+
+(define-abbrev-table 'occur-edit-mode-abbrev-table '())
+
+(define-abbrev-table 'occur-mode-abbrev-table '())
+
+(define-abbrev-table 'pike-mode-abbrev-table
+  '(
+   ))
+
+(define-abbrev-table 'process-menu-mode-abbrev-table '())
+
+(define-abbrev-table 'prog-mode-abbrev-table '())
+
+(define-abbrev-table 'sgml-mode-abbrev-table '())
+
+(define-abbrev-table 'special-mode-abbrev-table '())
+
+(define-abbrev-table 'tabulated-list-mode-abbrev-table '())
+
+(define-abbrev-table 'text-mode-abbrev-table '())
+
+(define-abbrev-table 'vc-git-log-edit-mode-abbrev-table '())
+
+(define-abbrev-table 'vc-git-log-view-mode-abbrev-table '())
+
+(define-abbrev-table '‘add-global-abbrev’ '())
