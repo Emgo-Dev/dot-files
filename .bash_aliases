@@ -87,6 +87,12 @@ alias to='-t '
 
 ### Options (End) ###
 
+### Configuration ###
+alias resetwifi='sudo service network-manager restart'
+alias resetmouse='xinput --set-prop pointer:Logitech\ USB\ Receiver Device\ Accel\ Constant\ Deceleration 2;xinput --set-prop pointer:Logitech\ USB\ Receiver\ Device\ Accel\ Adaptive\ Deceleration 5;xinput --set-prop pointer:Logitech\ USB\ Receiver\ Device\ Accel\ Velocity\ Scaling 5'
+
+### Configuration (End) ###
+
 ### Alias Expansion ###
 # Forcing other commands to expand preceding aliases.
 # If `path` is an alias of a path to a file, than `$ . path`
