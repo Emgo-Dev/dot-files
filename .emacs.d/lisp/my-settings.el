@@ -1,13 +1,10 @@
 ; Load Emacs Theme ;
-;(load-theme 'misterioso)
+(load-theme 'misterioso)
+(load-theme 'whiteboard)
 (load-theme 'deeper-blue)
 ; Load Emacs Theme (End) ;
 
 ; Startup Settings ;
-;; Dired File Sorting ;;
-(setq dired-listing-switches "-aBhl --group-directories-first")
-;; Dired File Sorting (End) ;;
-
 ;; Electric Indent Mode ;;
 ; Toggle on-the-fly reindentation.
 (add-hook 'after-init-hook (lambda () (electric-indent-mode 0)))

@@ -66,13 +66,20 @@ There are two things you can do about this warning:
 ;(customize-face auto-dim-other-buffers-face)
 (if (not (require 'auto-dim-other-buffers nil t))
     (message "package not found")
-  (custom-theme-set-faces
-    'deeper-blue
-    '(auto-dim-other-buffers-face ((t (:foreground "#333" :background "#111"))))
-  )
+ (custom-theme-set-faces
+      'deeper-blue
+      '(auto-dim-other-buffers-face ((t (:foreground "#333" :background "#111")))))
+ (custom-theme-set-faces
+      'whiteboard
+      '(auto-dim-other-buffers-face ((t (:foreground "#666" :background "#ccc")))))
   (add-hook 'after-init-hook (lambda () (auto-dim-other-buffers-mode t))))
-
 ;;; Auto Dim Other Buffers (End) ;;;
+
+;;; Avy ;;;
+(if (not (require 'avy nil t))
+    (message "package not found")
+)
+;;; Avy (End) ;;;
 
 ;;; Bind Key ;;;
 (if (not (require 'bind-key nil t))

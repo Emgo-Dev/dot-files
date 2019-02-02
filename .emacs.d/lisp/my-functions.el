@@ -50,6 +50,12 @@
 ;; Found Functions (End) ;;
 
 ;; My Functions ;;
+(defun safe-enable-theme (theme)
+  "Enable theme if loaded."
+  (interactive)
+  (if (custom-theme-p theme)
+    (enable-theme theme)))
+
 (defun space-times-2 ()
   (interactive)
   (insert "  ")

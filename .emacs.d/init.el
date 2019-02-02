@@ -6,6 +6,7 @@
 (load "my-packages")
 (load "my-functions")
 (load "my-unbindings")
+(load "my-dired")
 (load "my-bindings")
 
 ; # My Key-Bind Methodology

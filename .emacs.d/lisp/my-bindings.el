@@ -16,7 +16,6 @@
 ;(global-unset-key [tab])
 (global-unbindkey "<tab>")
 ;(global-unbindkey "<SPC>");
-(hook-bindkey 'dired-mode-hook "C-<return>" 'dired-find-file-other-window)
 
 ;;;; Function Keys
 (global-unbindkey "<f3>"); kmacro-start-macro-or-insert-counter
@@ -28,6 +27,8 @@
 (bind-key "M-<f12>" 'term-line-mode)
 
 ;;;; Arrow Keys
+(bind-keys :map Info-mode-map
+  ("<up>" 'Info-up))
 (hook-bindkey 'Info-mode-hook "<up>" 'Info-up)
 (hook-bindkey 'Info-mode-hook "<down>" 'Info-follow-nearest-node)
 (hook-bindkey 'Info-mode-hook "<left>" 'Info-prev)
@@ -40,44 +41,59 @@
 (global-unbindkey "M-q"); fill-paragraph
 
 ;;;; W
-(global-unbindkey "C-w")
-(bind-key "C-w C-=" 'increase-text-size)
-(bind-key "C-w C--" 'decrease-text-size)
-(bind-key "C-w i" 'decrease-window-size)
-(bind-key "C-w <C-i>" 'scroll-down-command)
-(bind-key "C-w o" 'find-file)
-(bind-key "C-w d" 'delete-window)
-(bind-key "C-w f" 'ace-window)
-(bind-key "C-w j" 'split-window-vertically)
-(bind-key "C-w C-j" 'move-previous-window)
-(bind-key "C-w k" 'split-window-horizontally)
-(bind-key "C-w C-k" 'move-next-window)
-(bind-key "C-w l" 'decrease-window-size-horizontally)
-(bind-key "C-w ;" 'increase-window-size-horizontally)
-(bind-key "C-w b" 'list-buffers)
-(bind-key "C-w n" 'increase-window-size)
-(bind-key "C-w C-n" 'scroll-up-command)
-(global-unbindkey "M-w"); kill-ring-save
+; The window prefix. Key-chord Patterns ("?" is a stand-in for following key-chords):
+; Adjustment Command: "C-w ?", user must lift finger from Ctrl. Use universal argument prefixes to make easier.
+; User Command: "C-w C-?", user must keep finger pressed on Ctrl. Cycle "w" & "?" to achieve desired result.
+(unbind-key "C-w")
+(bind-keys* :map global-map :prefix-map window-prefix-map :prefix "C-w"
+  ("=" . increase-text-size); Pseudo Zoom-In
+  ("-" . decrease-text-size); Pseudo Zoom-Out
+  ("C-w" . ace-window)
+  ("i" . decrease-window-size)
+  ("<C-i>" . scroll-down-command)
+  ("o" . find-file)
+  ("d" . delete-window)
+  ("C-g w" . avy-goto-word-1)
+  ("C-g C-w" . avy-goto-word-0)
+  ("C-g l" . avy-goto-line)
+  ("C-g C-l" . avy-goto-end-of-line)
+  ("C-g c" . avy-goto-char)
+  ("C-g C-c" . avy-goto-char-2)
+  ("j" . split-window-vertically)
+  ("C-j" . move-previous-window)
+  ("k" . split-window-horizontally)
+  ("C-k" . move-next-window)
+  ("l" . decrease-window-size-horizontally)
+  (";" . increase-window-size-horizontally)
+  ("b" . list-buffers)
+  ("n" . increase-window-size)
+  ("C-n" . scroll-up-command))
+(bind-key* "M-w o" 'find-file-other-window)
+(unbind-key "M-w"); kill-ring-save
 
 ;;;; E
 (global-unbindkey "C-e")
-(bind-key "C-e r" 'rename-buffer)
-(bind-key "C-e u" 'undo)
-(bind-key "C-e o" 'switch-to-buffer)
-(bind-key "C-e s" 'save-buffer)
-(bind-key "C-e C-s" 'save-some-buffers)
-(bind-key "C-e d" 'kill-buffer)
-(hook-bindkey 'mini-local-must-match-mode-hook "C-e d" 'minibuffer-complete-and-exit)
+(bind-keys* :map global-map :prefix-map buffer-prefix-map :prefix "C-e"
+  ("r" . rename-buffer)
+  ("u" . undo)
+  ("o" . switch-to-buffer)
+  ("s" . save-buffer)
+  ("C-s" . save-some-buffers)
+  ("d" . kill-buffer))
+(bind-key "C-e d" 'minibuffer-complete-and-exit minibuffer-local-must-match-map)
 (global-unbindkey "M-e"); forward-sentence
 
 ;;;; R
-(hook-bindkey 'dired-mode-hook "r" 'dired-do-rename)
 (global-unbindkey "M-r"); move-to-window-line-top-bottom
 
 ;;;; T
 (global-unbindkey "C-t"); transpose-words
-(bind-key "C-t i" 'newline)
-(bind-key "C-t n" 'open-line)
+(bind-keys* :map global-map :prefix-map global-prefix-map :prefix "C-t"
+  ("1" . (lambda () "Inline lambda" (interactive) (safe-enable-theme 'deeper-blue)))
+  ("2" . (lambda () "Inline lambda" (interactive) (safe-enable-theme 'misterioso)))
+  ("3" . (lambda () "Inline lambda" (interactive) (safe-enable-theme 'whiteboard))))
+;(bind-key "C-t i" 'newline)
+;(bind-key "C-t n" 'open-line)
 (global-unbindkey "M-t"); transpose-words
 
 ;;;; Y
@@ -91,14 +107,12 @@
 ;;;; I
 ; "C-i" returns "<tab>".
 ; To use real "C-i", use "<C-i>"
-(hook-bindkey 'dired-mode-hook "i" 'dired-previous-line)
 (hook-bindkey 'magit-status-mode-hook "i" 'magit-previous-line)
 (new-key-wrapper input-decode-map [?\C-i] [C-i])
 (new-key-wrapper input-decode-map [?\M-i] [M-i])
 (new-key-wrapper input-decode-map [?\C-\M-i] [C-M-i])
 (bind-key "<C-i>" 'previous-line)
 (hook-bindkey 'custom-mode-hook "<C-i>" 'previous-line)
-(hook-bindkey 'dired-mode-hook "<C-i>" 'dired-prev-subdir)
 (hook-bindkey 'magit-status-mode-hook "<C-i>" 'magit-section-backward)
 (bind-key "<M-i>" 'scroll-down-command)
 (hook-bindkey 'doc-view-mode-hook "<M-i>" 'doc-view-previous-page)
@@ -121,65 +135,41 @@
 (global-unbindkey "M-a"); backward-sentence
 
 ;;;; S
-(hook-bindkey 'dired-mode-hook "s" 'dired-mark)
-(hook-bindkey 'dired-mode-hook "C-S-s" 'dired-toggle-marks)
 (bind-key "C-s" 'set-mark-command)
-(hook-bindkey 'dired-mode-hook "C-s" 'dired-unmark-all-marks)
 
 ;;;; D
-(hook-bindkey 'dired-mode-hook "d" 'dired-flag-file-deletion)
-(hook-bindkey 'dired-mode-hook "C-d" 'dired-do-flagged-delete)
 (global-unbindkey "M-d")
 (bind-key "M-d" 'kill-region)
-(hook-bindkey 'dired-mode-hook "M-d" 'dired-unmark)
 
 ;;;; F
 (global-unbindkey "C-f")
 (bind-key "C-f r" 'replace-string)
 (bind-key "C-f t" 'isearch-forward)
 (bind-key "C-f l" 'goto-line)
-(hook-unbindkey 'dired-mode-hook "f"); remove default dired-find-file
-(hook-bindkey 'dired-mode-hook "C-f r" 'dired-do-rename)
-(hook-bindkey 'dired-mode-hook "C-f o" 'dired-do-chown)
-(hook-bindkey 'dired-mode-hook "C-f f" 'dired-create-directory)
-(hook-bindkey 'dired-mode-hook "C-f m" 'dired-do-chmod)
 (hook-bindkey 'doc-view-mode-hook "C-f t" 'doc-view-search)
 (hook-bindkey 'doc-view-mode-hook "C-f p" 'doc-view-goto-page)
 (global-unbindkey "M-f"); forward-word
 
 ;;;; G
-(hook-bindkey 'dired-mode-hook "g" 'dired-goto-file)
 
 ;;;; H
 (global-unbindkey "C-h");
 (global-unbindkey "M-h"); mark-paragraph
 
 ;;;; J
-;(hook-bindkey 'dired-mode-hook "j" 'dired-up-directory)
-; bind anonymous function (find-altenate-file) to look up a directory while in dired-mode
-(hook-bindkey 'dired-mode-hook "j" (lambda () (interactive) (find-alternate-file "..")))
 (global-unbindkey "C-j")
 (bind-key "C-j" 'backward-char)
-;(hook-bindkey 'dired-mode-hook "C-j" 'dired-up-directory)
-(hook-bindkey 'dired-mode-hook "C-j" 'dired-tree-up)
 (global-unbindkey "M-j")
 (bind-key "M-j" 'backward-word)
-(hook-bindkey 'dired-mode-hook "M-j" 'dired-kill-subdir)
 (global-unbindkey "C-M-j")
 
 ;;;; K
-;(hook-bindkey 'dired-mode-hook "k" 'dired-find-file)
-; dired-find-alternate-file recycles current buffer with chosen file in dired-mode
-(hook-bindkey 'dired-mode-hook "k" 'dired-find-alternate-file)
 (hook-bindkey 'magit-status-mode-hook "k" 'magit-section-toggle)
 (global-unbindkey "C-k")
 (bind-key "C-k" 'forward-char)
-;(hook-bindkey 'dired-mode-hook "C-k" 'dired-find-file)
-(hook-bindkey 'dired-mode-hook "C-k" 'dired-tree-down)
 (global-unbindkey "M-k")
 (global-unbindkey "C-M-k")
 (bind-key "M-k" 'forward-word)
-(hook-bindkey 'dired-mode-hook "M-k" 'dired-insert-subdir)
 
 ;;;; L
 (global-unbindkey "C-l")
@@ -198,11 +188,9 @@
 (global-unbindkey "M-z"); zap-to-char
 
 ;;;; X
-(hook-unbindkey 'dired-mode-hook "x")
 ;(global-unbindkey "M-x"); execute-extended-command
 
 ;;;; C
-(hook-bindkey 'dired-mode-hook "c" 'dired-do-copy)
 ;(bind-key "C-c" 'keyboard-quit)
 (bind-key "C-c" 'kill-ring-save)
 (hook-bindkey 'html-mode-hook "C-c" 'kill-ring-save)
@@ -219,10 +207,8 @@
 (global-unbindkey "M-b"); backward-word
 
 ;;;; N
-(hook-bindkey 'dired-mode-hook "n" 'dired-next-line)
 (hook-bindkey 'magit-status-mode-hook "n" 'magit-next-line)
 (bind-key "C-n" 'next-line)
-(hook-bindkey 'dired-mode-hook "C-n" 'dired-next-subdir)
 (hook-bindkey 'magit-status-mode-hook "C-n" 'magit-section-forward)
 (bind-key "M-n" 'scroll-up-command)
 (hook-bindkey 'doc-view-mode-hook "M-n" 'doc-view-next-page)
@@ -255,7 +241,6 @@
 (global-unbindkey "M-.")
 
 ;;;; /
-(put 'dired-find-alternate-file 'disabled nil)
 (bind-key "C-/" 'help-command)
 (global-unbindkey "M-/"); dabbrev-expand
 ; Key Bindings (End) ;
