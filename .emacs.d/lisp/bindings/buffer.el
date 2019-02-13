@@ -1,0 +1,16 @@
+; Key Bindings ;
+(bind-key Buffer-menu-mode-map "<SPC>" 'Buffer-menu-bury)
+(bind-key Buffer-menu-mode-map "<return>" 'Buffer-menu-mark)
+(bind-key Buffer-menu-mode-map "C-<return>" 'Buffer-menu-execute)
+(bind-key Buffer-menu-mode-map "t" 'Buffer-menu-toggle-files-only)
+(bind-key Buffer-menu-mode-map "u" 'Buffer-menu-unmark)
+(bind-key Buffer-menu-mode-map "i" 'previous-line)
+(bind-key Buffer-menu-mode-map "o" 'Buffer-menu-this-window)
+(bind-key Buffer-menu-mode-map "C-o" 'Buffer-menu-other-window)
+(bind-key Buffer-menu-mode-map "C-O" 'Buffer-menu-select)
+(bind-key Buffer-menu-mode-map "s" 'Buffer-menu-save)
+(bind-key Buffer-menu-mode-map "C-u" 'Buffer-menu-unmark-all)
+(bind-key Buffer-menu-mode-map "d" 'Buffer-menu-delete)
+(bind-key Buffer-menu-mode-map "f" 'Buffer-menu-toggle-files-only)
+(bind-key Buffer-menu-mode-map "n" 'next-line)
+; Key Bindings (End) ;
