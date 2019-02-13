@@ -41,11 +41,6 @@
 # ```
 ## Alias Expansion (End) ##
 
-## Functions ##
-# From: https://demgeeks.com/qt-make-the-command-line-easier-with-aliases-and-functions/
-thought(){ echo "`date`: $@" >> ~/journals/thoughts.txt; }
-## Functions (End) ##
-
 ## Aliases ##
 ### Options ###
 # -1: list entries by row

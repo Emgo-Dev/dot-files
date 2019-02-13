@@ -1,0 +1,14 @@
+#!/bin/bash
+# From: https://demgeeks.com/qt-make-the-command-line-easier-with-aliases-and-functions/
+
+dir="journals/"
+file="thoughts.txt"
+datestamp="`date`:"
+text="$1"
+
+if [ "$2" != "" ]
+  then file="$1.txt"
+  text="$2"
+fi
+
+echo "$datestamp $text" >> ~/"$dir$file"
